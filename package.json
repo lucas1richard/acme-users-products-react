@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./browser/test/",
+    "test": "mocha --compilers js:babel-core/register --recursive ./browser/test/*",
     "start": "webpack -w & nodemon --watch server/ -e js,html server/main.js"
   },
   "keywords": [],
@@ -19,9 +19,7 @@
     "babel-preset-react": "^6.23.0",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
-    "chai": "^3.5.0",
     "express": "^4.15.2",
-    "mocha": "^3.2.0",
     "pg": "^6.1.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -30,6 +28,8 @@
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0",
     "enzyme": "^2.8.0",
     "jest": "^19.0.2",
     "react-addons-test-utils": "^15.4.2",

@@ -1,4 +1,5 @@
-import React from 'react';
+const React = require('react');
+// import React from 'react';
 
 const NavBar = ({ tabs, handleTabChange, numUsers, numProducts }) => (
   <nav>
@@ -19,4 +20,5 @@ NavBar.propTypes = {
   numProducts: React.PropTypes.number.isRequired
 };
 
-export default NavBar;
+// export default NavBar;
+module.exports = NavBar;

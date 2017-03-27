@@ -15,8 +15,8 @@ const NavBar = ({ tabs, handleTabChange, numUsers, numProducts }) => (
 NavBar.propTypes = {
   tabs: React.PropTypes.array.isRequired,
   handleTabChange: React.PropTypes.func.isRequired,
-  numUsers: React.propTypes.number.isRequired,
-  numProducts: React.propTypes.number.isRequired
+  numUsers: React.PropTypes.number.isRequired,
+  numProducts: React.PropTypes.number.isRequired
 };
 
 export default NavBar;

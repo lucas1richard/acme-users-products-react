@@ -1,0 +1,31 @@
+{
+  "name": "acme-users-products-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DATABASE_URL=postgres://localhost/acme_users_products_react webpack -w & nodemon --watch server -e js,html server/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "chai": "^3.5.0",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0",
+    "pg": "^6.1.5",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "sequelize": "^3.30.3",
+    "webpack": "^2.3.1"
+  }
+}

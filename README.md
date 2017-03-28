@@ -1,3 +1,3 @@
-#Acme-Users-Products-React#
+# Acme-Users-Products-React
 
-####React components are in `browser/react`####
+#### React components are in `browser/react`

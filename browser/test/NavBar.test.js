@@ -1,5 +1,10 @@
 import React  from 'react';
-import { shallow } from 'enzyme';
+import jsdom from 'jsdom';
+
+global.document = jsdom.jsdom('<html><body></body></html>');
+global.window = global.document.defaultView;
+
+import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 
 import NavBar from '../react/NavBar';
@@ -9,7 +14,7 @@ const handleTabChange = () => {};
 const numUsers = 1;
 const numProducts = 2;
 
-const nav = shallow(
+const nav = mount(
   <NavBar
     tabs={tabs}
     handleTabChange={handleTabChange}
@@ -18,18 +23,23 @@ const nav = shallow(
   />
 );
 
-const { props } = nav.unrendered;
+const props = nav.props();
 
 describe('<NavBar /> testing', () => {
   describe('Elements', () => {
-    it('is a nav element', () => {
-      expect(nav.type()).to.equal('nav');
+    it('has one child which is a <ul> with class nav-tabs', () => {
+      expect(nav.children().type()).to.equal('ul');
+      expect(nav.children().hasClass('nav-tabs')).to.equal(true);
     });
-    it('has two children', () => {
+    it('has one child with two children', () => {
       expect(nav.children().children().length).to.equal(tabs.length);
     });
-    it('each child has only one child', () => {
+    it('child\'s two direct children are li elements', () => {
+      expect(nav.children().find('li')).to.have.length(tabs.length);
+    });
+    it('each child has only one child which is an a element', () => {
       expect(nav.children().children().children().length).to.equal(tabs.length);
+      expect(nav.children().children().children().find('a')).to.have.length(tabs.length);
     });
   });
 
@@ -53,7 +63,8 @@ describe('<NavBar /> testing', () => {
   });
 
   describe('children text', () => {
-    console.dir(nav.children().children());
-    expect(true).to.be.ok;
+    nav.find('li').at(1).simulate('click');
+    console.log(nav.find('li').at(1).props());
   });
 });
+

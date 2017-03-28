@@ -26,18 +26,18 @@ class Main extends Component {
   handleAddNewProduct(product) {
     axios.post(`/api/products`, { product })
       .then(({ data }) => {
-        const productsList = this.state.products;
-        productsList.push(data);
-        this.setState({ products: productsList });
+        const { products } = this.state;
+        products.push(data);
+        this.setState({ products });
       });
   }
 
   handleRemoveProduct(product) {
     axios.delete(`/api/products/${product.id}`)
       .then(() => {
-        let newProductsList = this.state.products;
-        newProductsList = newProductsList.filter(stateProduct => stateProduct.id !== product.id);
-        this.setState({products: newProductsList});
+        let { products } = this.state;
+        products = products.filter(stateProduct => stateProduct.id !== product.id);
+        this.setState({ products });
       });
   }
 

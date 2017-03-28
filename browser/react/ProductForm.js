@@ -15,6 +15,7 @@ class ProductForm extends Component {
   addNewProduct() {
     if (!this.state.newProduct.length) return;
     this.props.handleAddNewProduct(this.state.newProduct);
+    this.setState({ newProduct: '' });
   }
 
   render() {
